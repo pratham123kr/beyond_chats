@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Question Answering Results</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../static/style.css">
+</head>
+<body>
+    <h1>Question Answering Results</h1>
+    {% for result in results %}
+    <div class="result">
+        <h2>Question:</h2>
+        <p>{{ result.response }}</p>
+        <h2>Citations:</h2>
+        <ul>
+            {% for citation in result.citations %}
+            <li>ID: {{ citation.id }} - Link: <a href="../app.py">{{ citation.link }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endfor %}
+</body>
+</html>
